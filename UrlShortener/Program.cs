@@ -72,4 +72,13 @@ app.MapGet("{code}", async (
     return Results.Redirect(shortenedUrl.LongUrl);
 });
 
+app.MapGet("urls", async (
+    ApplicationDbContext dbContext
+) =>
+{
+    var urls = await dbContext.ShortenedUrls.ToListAsync();
+
+    return Results.Ok(urls);
+});
+
 app.Run();
