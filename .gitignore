@@ -1,0 +1,4 @@
+# .gitignore
+
+/UrlShortener/app-settings.json
+!/UrlShortener/app-settings.example.json
