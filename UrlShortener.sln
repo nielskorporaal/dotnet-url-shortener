@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortener", "UrlShortener\UrlShortener.csproj", "{2D5F161B-91CD-4E67-A7BB-8B1C89B6724E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{4BB6FC4B-AB0E-49AF-B0CC-C3CD9F13B045}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{2D5F161B-91CD-4E67-A7BB-8B1C89B6724E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D5F161B-91CD-4E67-A7BB-8B1C89B6724E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D5F161B-91CD-4E67-A7BB-8B1C89B6724E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB6FC4B-AB0E-49AF-B0CC-C3CD9F13B045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB6FC4B-AB0E-49AF-B0CC-C3CD9F13B045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB6FC4B-AB0E-49AF-B0CC-C3CD9F13B045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB6FC4B-AB0E-49AF-B0CC-C3CD9F13B045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

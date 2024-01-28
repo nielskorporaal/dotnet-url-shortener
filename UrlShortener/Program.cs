@@ -13,6 +13,16 @@ var connectionString = $"Host={databaseSettings["Host"]};Port={databaseSettings[
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin();
+        builder.AllowAnyMethod();
+        builder.AllowAnyHeader();
+    });
+});
+
 builder.Services.AddScoped<UrlShortenerService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -26,6 +36,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors();
 }
 
 app.UseHttpsRedirection();
