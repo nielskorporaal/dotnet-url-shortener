@@ -1,0 +1,39 @@
+@page "/urls"
+@using UrlShortener.Models
+@inject HttpClient HttpClient;
+
+<h3>Shortened URLs</h3>
+
+@if (_shortenedUrls != null && _shortenedUrls.Any())
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var url in _shortenedUrls)
+        {
+            <tr>
+                <td>@url.LongUrl</td>
+                <td><a href="@url.ShortUrl" target="_blank">@url.ShortUrl</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No shortened URLs available.</p>
+}
+
+@code {
+    private List<ShortenedUrl>? _shortenedUrls;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _shortenedUrls = await HttpClient.GetFromJsonAsync<List<ShortenedUrl>>("http://localhost:5272/urls");
+    }
+}

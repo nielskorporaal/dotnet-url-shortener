@@ -1,0 +1,48 @@
+@page "/Shorten"
+@using UrlShortener.Models
+@inject HttpClient HttpClient;
+<h3>Shorten URL</h3>
+
+<p>
+    Enter an URL and click the button below to shorten it!
+</p>
+
+<div class="input-group mb-3">
+    <input @bind="_url" type="text" class="form-control" placeholder="Enter URL" />
+    <div class="input-group-append">
+        <button @onclick="ShortenUrl" class="btn btn-success">Generate</button>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(_shortenedUrl))
+{
+    var trimmedUrl = _shortenedUrl.Trim('"');
+    var lastIndex = _shortenedUrl.LastIndexOf("/", StringComparison.Ordinal);
+    var urlCode = trimmedUrl.Substring(lastIndex, trimmedUrl.Length - lastIndex);
+    
+    <p class="mt-3">Shortened URL: <a href="@trimmedUrl" target="_self">@urlCode</a></p>
+}
+
+
+@code {
+    private string? _url;
+    private string? _shortenedUrl;
+
+    private async Task ShortenUrl()
+    {
+        var request = new ShortenUrlRequest(_url);
+
+        var response = await HttpClient.PostAsJsonAsync("http://localhost:5272/shorten", request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            _shortenedUrl = await response.Content.ReadAsStringAsync();
+            
+            Console.WriteLine(_shortenedUrl);
+        }
+        else
+        {
+            Console.WriteLine($"Error: {response.StatusCode}");
+        }
+    }
+}
