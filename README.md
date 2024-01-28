@@ -5,6 +5,12 @@
 This example demonstrates how to create an URL shortener in ASP.NET Core 8 using MinimalAPI, Entity Framework Core and a Postgres Database with Docker.
 This repository is based on [this blog post](https://www.milanjovanovic.tech/blog/how-to-build-a-url-shortener-with-dotnet) but makes use of a Postgres database running in Docker.
 
+This solution also contains a Blazor WebAssembly Client application.
+
+![shorten.png](shorten.png)
+
+![urls.png](urls.png)
+
 ## Prerequisites
 - .NET 8 SDK
 - Docker
